@@ -14,11 +14,11 @@ até a fase final de compilação. Não é preciso implementar um compilador nov
 5. Fazer uma apresentação de 15 minutos na data da entrega final.
 
 ### Avaliação:
-• A+: se cumprir todos os requisitos acima.
-• B: se o requisito número 3 for feito com o próprio compilador.
-• D: se não cumprir os requisitos.
-• I: se não houver entrega ou se for irrelevante.
-• Cada atraso implica em perda de 1/2 conceito na avaliação
+- A+: se cumprir todos os requisitos acima.
+- B: se o requisito número 3 for feito com o próprio compilador.
+- D: se não cumprir os requisitos.
+- I: se não houver entrega ou se for irrelevante.
+- Cada atraso implica em perda de 1/2 conceito na avaliação
 
 ### Entregas Parciais
 1. 18/Mar/2020: Linguagem estruturada segundo a EBNF - Tarefa #1.
