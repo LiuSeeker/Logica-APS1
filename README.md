@@ -20,6 +20,7 @@ até a fase final de compilação. Não é preciso implementar um compilador nov
 - I: se não houver entrega ou se for irrelevante.
 - Cada atraso implica em perda de 1/2 conceito na avaliação
 
-### Entregas Parciais
+### Entregas
 1. 18/Mar/2020: Linguagem estruturada segundo a EBNF - Tarefa #1.
 2. 22/Abr/2020: Análise Léxica e Sintática (sem análise semântica e compilação) - Tarefa #2.
+3. 01/Jun/2020: Entrega final
