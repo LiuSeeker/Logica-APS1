@@ -1,0 +1,35 @@
+BLOCO = FUNC DEF | WHILE | IF | FUNC IDENTIFIER | (IDENTIFIER, "=", ((IDENTIFIER | NUMERO | FUNC IDENTIFIER), ({ART OP, (IDENTIFIER | NUMERO | FUNC IDENTIFIER)} | ";")), 
+        [{FUNC DEF | WHILE | IF | FUNC IDENTIFIER | (IDENTIFIER, "=", ((IDENTIFIER | NUMERO | FUNC IDENTIFIER), ({ART OP, (IDENTIFIER | NUMERO | FUNC IDENTIFIER)} | ";"))}];
+
+FUNC DEF = "eb", IDENTIFIER, "(", ARGS, ")", ":", BLOCO, "zeb", ";";
+
+WHILE = "ible", "(", CONDITION, ")", ":", BLOCO, "zible", ";";
+
+IF = "ib", "(", CONDITION, ")", ":", BLOCO, ((ELIF/ELSE) | "zib")
+
+ELIF/ELSE = ("ebib", "(", CONDITION, ")", ":", BLOCO, (ELIF/ELSE | 
+            ("eble", ":", BLOCO, "zib")) | "zib");
+
+CONDITION = (IDENTIFIER | NUMERO | FUNC IDENTIFIER), COND OP, (IDENTIFIER | NUMERO | FUNC IDENTIFIER), [{("obe" | "obou"), CONDITION}];
+
+FUNC IDENTIFIER = IDENTIFIER, "(", ")";
+
+NUMERO = {DIGITO};
+
+AGRS = IDENTIFIER, {",", IDENTIFIER};
+
+IDENTIFIER = LETRA, {LETRA | DIGITO | "-" | "_"};
+
+COND OP = "ob" (*=*) | "nob" (*!=*) | "<b" | ">b" | "<=b" | ">=b";
+
+ART OP = "+" | "-" | "*" | "/" | "%" | "**";
+
+LETRA = "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b"
+       | "c" | "d" | "f" | "g" | "h" | "j" | "l"
+       | "m" | "n" | "o" | "p" | "q" | "r" | "s"
+       | "t" | "u" | "v" | "w" | "x" | "y" | "z";
+
+NUMERO = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
