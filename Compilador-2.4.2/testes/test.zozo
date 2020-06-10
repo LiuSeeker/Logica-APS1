@@ -1,0 +1,55 @@
+zrint "enter um numero";
+a = zinput();
+b = 5;
+
+eb Oba(a,z):
+    l = a + z;
+    zrint "a+4: " + l;
+
+    eb Noba():
+        zrint "noba";
+    zeb;
+    Noba();
+
+    zeturn l;
+zeb;
+
+/*Noba();*/
+
+c = Oba(a, 4);
+
+Oba = 2;
+zrint "Oba: " + Oba;
+
+ib (a == b obou a == b + 1):
+    zrint "normal";
+    zrint "pp";
+ebib (a > b):
+    zrint "big";
+    zrint "pp";
+ebib (a < 0):
+    zrint "no";
+    zrint "pp";
+eble:
+    zrint "smol";
+    zrint "pp";
+zib;
+
+
+ible (a < 20):
+    zrint a;
+    a = a + 1;
+zible;
+
+/*
+eb Recursao(x):
+    ib(x == 0):
+        zrint "BOOM";
+    eble:
+        zrint x;
+        Recursao(x-1);
+    zib;
+zeb;
+
+Recursao(a);
+*/

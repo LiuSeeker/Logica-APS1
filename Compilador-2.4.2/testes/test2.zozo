@@ -1,0 +1,28 @@
+/* Leitura do terminal, if e while */
+
+zrint "enter um numero";
+a = zinput();
+b = 5;
+
+ib ((a == b) obou (a == b + 1)):
+    zrint "normal";
+    zrint "pp";
+ebib (a > b):
+    zrint "big";
+    zrint "pp";
+ebib (a < 0):
+    zrint "no";
+    zrint "pp";
+eble:
+    zrint "smol";
+    zrint "pp";
+zib;
+
+
+ible (a < 20):
+    zrint a;
+    ib (a == 13):
+        zrint "aaaaaaaaaaaa";
+    zib;
+    a = a + 1;
+zible;

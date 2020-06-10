@@ -1,63 +1,45 @@
 Zozoba EBNF
 
-BLOCO = (FUNC DEF
-        | WHILE 
-        | IF
-        | (DATA_TYPE, IDENTIFIER, "=", CONDITION, ";")
-        | ("zrint", CONDITION, ";")), {BLOCO};
+PROGRAM = {COMMAND};
 
-FUNC DEF = "eb", DATA_TYPE, IDENTIFIER, "(", ARGS, ")", ":", BLOCO, "zeb", ";";
+COMMAND = ( IDENTIFIER, "=", RELEX, ";" |
+            IDENTIFIER, "(", ARGS, ")", ";" |
+            "zrint", RELEX, ";" |
+            "zeturn", RELEX, ";" |
+            "eb", IDENTIFIER, "(", ARGS2, ")", ":" COMMAND, {COMMAND}, "zeb", ";" |
+            "ible", "(", RELEX, ")", ":" COMMAND, {COMMAND}, "zible", ";" |
+            "ib", "(", RELEX, ")", ":" COMMAND, {COMMAND}, ( ELIF | ("zib", ";") ) );
 
-WHILE = "ible", "(", CONDITION, ")", ":", BLOCO, "zible", ";";
+ELIF = "ebib", "(", RELEX, ")", ":", COMMAND, {COMMAND}, ( ELIF | ("zib", ";") |
+                "eble", ":", COMMAND, {COMMAND}, "zib", ";");
 
-IF = "ib", "(", CONDITION, ")", ":", BLOCO, {ELIF}, "zib", ";";
+RELEX = EXPR, { ( "==" | ">" | "<" ), EXPR };
 
-ELIF = "ebib", "(", CONDITION, ")", ":", BLOCO,
-        ( ELIF | ("eble", ":", BLOCO") );
+EXPR = TERM, { ( "+" | "-" | 'obou" ), TERM };
 
-FUNC IDENTIFIER = IDENTIFIER, "(", ARGS_2, ")", ";";
+TERM = FACTOR, { ( "*" | "/" | "%" | "//" | "**" | "obe" ), FACTOR };
 
-NUMERO = DIGITO, {DIGITO};
+FACTOR = ( INT |
+           FLOAT |
+           ( "+" | "-" | "!"), FACTOR |
+           "(", RELEX ")" |
+           IDENTIFIER |
+           "zinput", "(", ")" |
+           "true" | "false" |
+           STRING |
+           IDENTIFIER, "(", ARGS, ")" );
 
-FLOAT = NUMERO, ".", NUMERO;
+ARGS = {RELEX, {",", RELEX}};
 
-IDENTIFIER = LETRA, {LETRA | DIGITO | "_"};
+ARGS2 = {IDENTIFIER, {",", IDENTIFIER}};
 
-CONDITION = RELEX, { (obe | obou), RELEX };
+INT = DIGITO, {DIGITO};
 
-RELEX = EXPR, {COND OP, EXPR};
+STRING = '"', CARACTERE, '"';
 
-EXPR = TERM, {("+" | "-"), TERM};
+FLOAT = INT, ".", INT;
 
-TERM = FACTOR, {("*" | "/" | "%" | "**"), FACTOR};
-
-FACTOR = (NUMERO
-        | FLOAT
-        | "true"
-        | "false"
-        | STRING
-        | CHAR
-        | (("+" | "-"), FACTOR)
-        | ("(", CONDITION, ")")
-        | IDENTIFIER
-        | FUNC IDENTIFIER);
-
-DATA TYPE = "void"
-        | "int"
-        | "char"
-        | "float"
-        | "bool";
-
-COND OP = "ob" (*=*) | "nob" (*!=*) | "<b" | ">b" | "<=b" | ">=b";
-
-AGRS = DATA TYPE, IDENTIFIER, {",", ARGS};
-
-AGRS_2 = ((DATA TYPE, IDENTIFIER) | CONDITION), {",", ARGS_2};
-
-STRING = """, {caractere}, """;
-
-CHAR = "'", ((caractere, "'") | "'");
-
+IDENTIFIER = LETRA, { (LETRA | DIGITO | "_") };
 
 LETRA = "A" | "B" | "C" | "D" | "E" | "F" | "G"
        | "H" | "I" | "J" | "K" | "L" | "M" | "N"

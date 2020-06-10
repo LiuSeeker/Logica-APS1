@@ -1,0 +1,35 @@
+/* Identifiers, booleanos e relacionais*/
+a = 1;
+b = True;
+c = falSe;
+d = 0;
+e = 6;
+
+zrint ">aritimeticos";
+
+f = a + b;                              /*1 + true*/
+zrint f;                                /*2*/
+
+j = b + e + c;                          /*True + 6 + 0*/
+zrint j;                                /*7*/
+
+zrint ">booleanos";
+
+g = d obe b;                            /*0 and true*/
+zrint g;                                /*false*/
+
+h = (e obe b) obou (a obe c);           /*(6 and true) or (1 and false)*/
+i = ((d obe a) obe b) obou (a obe c);   /*((0 and 1) and true) or (1 and false)*/
+zrint h;                                /*true*/
+zrint i;                                /*false*/
+
+zrint ">relacionais";
+
+k = e < c;                              /*6 < false*/
+zrint k;                                /*false*/
+
+l = e > false;                          /*6 > false*/
+zrint l;                                /*true*/
+
+m = b > false;                          /*true > false*/
+zrint !m;                               /*false*/

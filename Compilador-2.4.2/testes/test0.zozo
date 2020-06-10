@@ -1,0 +1,10 @@
+/* Operadores aritmeticos */
+zrint 1+1;          /*2*/
+zrint -1;           /*-1*/
+zrint 20/10;        /*2*/
+zrint 20/5+5;       /*9*/
+zrint +----++--2;   /*2*/
+zrint (3+6)/(4-1);  /*3*/
+zrint 2**3;         /*8*/
+zrint 3%2;          /*1*/
+zrint 5//2;         /*2*/

@@ -1,0 +1,18 @@
+/* Strings e floats */
+
+a = "OBa";
+zrint a;          /*OBa*/
+
+zrint a + 3;      /*OBa3*/
+
+zrint a * 2;      /*OBaOBa*/
+
+d = true;
+zrint a + d;      /*OBaTrue*/
+
+b = 3.5;
+zrint b;          /*3.5*/
+
+zrint b + 5.2;    /*8*/
+
+zrint a == "OBa"; /*true*/
