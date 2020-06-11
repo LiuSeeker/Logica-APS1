@@ -1,0 +1,25 @@
+/* Funcoes */
+
+zrint "enter um numero";
+a = zinput();
+
+eb Oba(a,z):
+    l = a + z;
+
+    eb Noba():
+        zrint "noba";  /*noba*/
+    zeb;
+    Noba();
+
+    zeturn l;
+zeb;
+
+c = Oba(a, 4);
+
+zrint "c: " + c;    /*c: a+4*/
+
+Oba = 2;
+
+c = Oba;
+
+zrint "c: " + c;    /*c: 2*/
