@@ -920,10 +920,19 @@ class FuncCall(Node):
         self.children = []
 
     def evaluate(self, st):
-        func = st.getSymbol(self.value)["value"]
+        st_a = st
+        while True:
+            try:
+                func = st_a.getSymbol(self.value)["value"]
+                break
+            except NameError as e:
+                if st_a.parent == None:
+                    raise NameError("{} nao definido".format(self.value))
+                st_a = st_a.parent
         if len(func.children)-1 != len(self.children):
             raise TypeError("{}() recebe {} args, recebeu {}".format(self.value, len(func.children)-1, len(self.children)))
         stn = SymbolTable()
+        stn.parent = st
         for i in range(len(self.children)):
             stn.setSymbol(func.children[i].value, self.children[i].evaluate(st))
         func.children[-1].evaluate(stn)
@@ -941,6 +950,7 @@ class Return(Node):
 
 class SymbolTable():
     def __init__(self):
+        self.parent = None
         self.symbols = defaultdict(dict)
     
     def setSymbol(self, symbol, value):

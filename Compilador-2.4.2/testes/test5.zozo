@@ -1,0 +1,15 @@
+/* Recursao */
+
+zrint "enter um numero";
+a = zinput();
+
+eb Recursao(x):
+    ib(x == 0):
+        zrint "BOOM";
+    eble:
+        zrint x;
+        Recursao(x-1);
+    zib;
+zeb;
+
+Recursao(a);
